@@ -36,7 +36,6 @@ namespace Formularios
             this.lblDatos = new System.Windows.Forms.Label();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
-            this.btnNuevoCliente = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -105,18 +104,6 @@ namespace Formularios
             this.btnProductos.UseVisualStyleBackColor = false;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
-            // btnNuevoCliente
-            // 
-            this.btnNuevoCliente.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnNuevoCliente.Location = new System.Drawing.Point(22, 225);
-            this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(322, 59);
-            this.btnNuevoCliente.TabIndex = 11;
-            this.btnNuevoCliente.Text = "Nuevo Cliente";
-            this.btnNuevoCliente.UseVisualStyleBackColor = false;
-            this.btnNuevoCliente.Visible = false;
-            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
-            // 
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -136,7 +123,6 @@ namespace Formularios
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(993, 494);
-            this.Controls.Add(this.btnNuevoCliente);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.btnClientes);
@@ -160,7 +146,6 @@ namespace Formularios
         private System.Windows.Forms.Label lblDatos;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnProductos;
-        private System.Windows.Forms.Button btnNuevoCliente;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.DataGridView dataGridView;
     }

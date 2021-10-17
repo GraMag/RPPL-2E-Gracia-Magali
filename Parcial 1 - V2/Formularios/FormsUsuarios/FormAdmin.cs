@@ -56,6 +56,26 @@ namespace Formularios
             }
         }
 
+
+        /// <summary>
+        /// Abre el form para ingresar un nuevo cliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnNuevoCliente_Click(object sender, EventArgs e)
+        {  
+            DataGridViewProp.DataSource = null;
+            FormRegistro formRegistro = new FormRegistro(Petshop);
+            formRegistro.ShowDialog();
+            DataGridViewProp.DataSource = Petshop.Clientes;
+            this.DataGridViewProp.Columns["Password"].Visible = false;
+            btnNuevoCliente.Hide();
+        }
+        protected override void btnClientes_Click(object sender, EventArgs e)
+        {
+            base.btnClientes_Click(sender, e);
+            btnNuevoCliente.Show();
+        }
         /// <summary>
         /// Abre el formulario de facturacion
         /// </summary>

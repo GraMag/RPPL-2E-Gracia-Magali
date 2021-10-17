@@ -63,9 +63,8 @@ namespace Formularios
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnClientes_Click(object sender, EventArgs e)
+        protected virtual void btnClientes_Click(object sender, EventArgs e)
         {
-            btnNuevoCliente.Visible = true;
             dataGridView.DataSource = petshop.Clientes;
             this.dataGridView.Columns["Password"].Visible = false;
         }
@@ -77,7 +76,6 @@ namespace Formularios
         /// <param name="e"></param>
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            btnNuevoCliente.Visible = false;
             dataGridView.DataSource = petshop.Productos;
         }
 
@@ -98,20 +96,6 @@ namespace Formularios
             }
         }
 
-        /// <summary>
-        /// Abre el form para ingresar un nuevo cliente
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnNuevoCliente_Click(object sender, EventArgs e)
-        {
-            dataGridView.DataSource = null;
-            FormRegistro formRegistro = new FormRegistro(petshop);
-            formRegistro.ShowDialog();
-            dataGridView.DataSource = petshop.Clientes;
-            this.dataGridView.Columns["Password"].Visible = false;
-            btnNuevoCliente.Hide();
-        }
 
         /// <summary>
         /// Cierra sesion
