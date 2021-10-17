@@ -15,9 +15,16 @@ namespace Formularios
     public partial class FormEmpleado : Form
     {
         Petshop petshop;
+        Timer timer;
         public FormEmpleado()
         {
             InitializeComponent();
+            timer = new System.Windows.Forms.Timer();
+            timer.Tick += delegate {
+                this.Close();
+            };
+            timer.Interval = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
+            timer.Start();
         }
 
         public FormEmpleado(Petshop petshop)
