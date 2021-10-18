@@ -39,9 +39,10 @@ namespace Formularios
             // btnEmpleados
             // 
             this.btnEmpleados.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnEmpleados.Location = new System.Drawing.Point(22, 354);
+            this.btnEmpleados.Location = new System.Drawing.Point(19, 266);
+            this.btnEmpleados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(322, 58);
+            this.btnEmpleados.Size = new System.Drawing.Size(282, 44);
             this.btnEmpleados.TabIndex = 11;
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.UseVisualStyleBackColor = false;
@@ -50,9 +51,10 @@ namespace Formularios
             // btnFacturacion
             // 
             this.btnFacturacion.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnFacturacion.Location = new System.Drawing.Point(22, 290);
+            this.btnFacturacion.Location = new System.Drawing.Point(19, 218);
+            this.btnFacturacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFacturacion.Name = "btnFacturacion";
-            this.btnFacturacion.Size = new System.Drawing.Size(322, 57);
+            this.btnFacturacion.Size = new System.Drawing.Size(282, 43);
             this.btnFacturacion.TabIndex = 12;
             this.btnFacturacion.Text = "Facturacion";
             this.btnFacturacion.UseVisualStyleBackColor = false;
@@ -61,9 +63,10 @@ namespace Formularios
             // btnNuevoCliente
             // 
             this.btnNuevoCliente.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnNuevoCliente.Location = new System.Drawing.Point(22, 225);
+            this.btnNuevoCliente.Location = new System.Drawing.Point(19, 169);
+            this.btnNuevoCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(322, 59);
+            this.btnNuevoCliente.Size = new System.Drawing.Size(282, 44);
             this.btnNuevoCliente.TabIndex = 13;
             this.btnNuevoCliente.Text = "Nuevo Cliente";
             this.btnNuevoCliente.UseVisualStyleBackColor = false;
@@ -77,10 +80,10 @@ namespace Formularios
             // 
             // FormAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(989, 495);
+            this.ClientSize = new System.Drawing.Size(865, 371);
             this.Controls.Add(this.btnNuevoCliente);
             this.Controls.Add(this.btnFacturacion);
             this.Controls.Add(this.btnEmpleados);
@@ -91,6 +94,7 @@ namespace Formularios
             this.Controls.SetChildIndex(this.btnFacturacion, 0);
             this.Controls.SetChildIndex(this.btnNuevoCliente, 0);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

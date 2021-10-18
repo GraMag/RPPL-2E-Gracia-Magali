@@ -40,6 +40,7 @@ namespace Formularios
             this.lblBuscar = new System.Windows.Forms.Label();
             this.txtBoxBuscar = new System.Windows.Forms.TextBox();
             this.txtBoxBuscarU = new System.Windows.Forms.TextBox();
+            this.btnDarkmode = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +57,7 @@ namespace Formularios
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnDarkmode);
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.lblDatos);
             this.panel1.Controls.Add(this.lblBienvenido);
@@ -68,10 +70,10 @@ namespace Formularios
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnLogOut.Location = new System.Drawing.Point(755, 2);
+            this.btnLogOut.Location = new System.Drawing.Point(744, 2);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(67, 22);
+            this.btnLogOut.Size = new System.Drawing.Size(78, 22);
             this.btnLogOut.TabIndex = 2;
             this.btnLogOut.Text = "Logout";
             this.btnLogOut.UseVisualStyleBackColor = false;
@@ -154,6 +156,18 @@ namespace Formularios
             this.txtBoxBuscarU.Visible = false;
             this.txtBoxBuscarU.TextChanged += new System.EventHandler(this.txtBoxBuscarU_TextChanged);
             // 
+            // btnDarkmode
+            // 
+            this.btnDarkmode.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnDarkmode.Location = new System.Drawing.Point(744, 44);
+            this.btnDarkmode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDarkmode.Name = "btnDarkmode";
+            this.btnDarkmode.Size = new System.Drawing.Size(78, 22);
+            this.btnDarkmode.TabIndex = 3;
+            this.btnDarkmode.Text = "Darkmode";
+            this.btnDarkmode.UseVisualStyleBackColor = false;
+            this.btnDarkmode.Click += new System.EventHandler(this.btnDarkmode_Click);
+            // 
             // FormEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -195,5 +209,6 @@ namespace Formularios
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.TextBox txtBoxBuscar;
         private System.Windows.Forms.TextBox txtBoxBuscarU;
+        private System.Windows.Forms.Button btnDarkmode;
     }
 }

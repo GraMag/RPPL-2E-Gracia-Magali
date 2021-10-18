@@ -76,6 +76,23 @@ namespace Formularios
             base.btnClientes_Click(sender, e);
             btnNuevoCliente.Show();
         }
+
+        protected override void btnDarkmode_Click(object sender, EventArgs e)
+        {
+            base.btnDarkmode_Click(sender, e);
+            if (Darkmode)
+            {
+                btnEmpleados.BackColor = Color.DarkSeaGreen;
+                btnFacturacion.BackColor = Color.DarkSeaGreen;
+                btnNuevoCliente.BackColor = Color.DarkSlateBlue;
+            }
+            else
+            {
+                btnEmpleados.BackColor = Color.GreenYellow;
+                btnFacturacion.BackColor = Color.GreenYellow;
+                btnNuevoCliente.BackColor = Color.GreenYellow;
+            }
+        }
         /// <summary>
         /// Abre el formulario de facturacion
         /// </summary>

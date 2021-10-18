@@ -67,6 +67,13 @@ namespace Formularios
             }
         }
 
+        public bool Darkmode
+        {
+            get
+            {
+                return darkmode;
+            }
+        }
         private void FormEmpleado_Load(object sender, EventArgs e)
         {
             darkmode = false;
@@ -171,6 +178,32 @@ namespace Formularios
         private void Buscar(List<Producto> lista)
         {
             dataGridView.DataSource = lista.FindAll(item => item.Id.ToString().Contains(txtBoxBuscar.Text) || item.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower()));
+        }
+
+        protected virtual void btnDarkmode_Click(object sender, EventArgs e)
+        {
+            if(!darkmode)
+            {
+                BackColor = Color.Black;
+                btnClientes.BackColor = Color.DarkSeaGreen;
+                btnProductos.BackColor = Color.DarkSeaGreen;
+                btnLogOut.BackColor = Color.DarkSeaGreen;
+                btnDarkmode.BackColor = Color.DarkSeaGreen;
+                lblBienvenido.ForeColor = Color.LightGoldenrodYellow;
+                lblDatos.ForeColor = Color.LightGoldenrodYellow;
+                lblBuscar.ForeColor = Color.LightGoldenrodYellow;
+            }
+            else
+            {
+                BackColor = Color.DarkOrange;
+                this.btnLogOut.BackColor = Color.YellowGreen;
+                this.btnDarkmode.BackColor = Color.YellowGreen;
+                this.btnClientes.BackColor = Color.GreenYellow;
+                this.btnProductos.BackColor = Color.GreenYellow;
+                lblBienvenido.ForeColor = Color.White;
+                lblBuscar.ForeColor = Color.White;
+            }
+            darkmode = !darkmode;
         }
     }
 }
