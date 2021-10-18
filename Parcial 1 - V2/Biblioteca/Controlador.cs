@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Biblioteca
 {
     public static class Controlador
@@ -32,10 +33,10 @@ namespace Biblioteca
         { 
             if(stockProductos.Count == 0)
             {
-                stockProductos.Add(new(7862, ECategoria.ALIMENTOS, "Alimento Adultos Pescado", 444.20, "Whiskas", 86, "1Kg"));
-                stockProductos.Add(new(9511, ECategoria.ALIMENTOS, "Alimento En Sobre Carne", 84.60, "Pedigree", 45, "100 Gr"));
-                stockProductos.Add(new(3628, ECategoria.LIMPIEZA, "Dentastix", 358.98, "Pedigree", 15));
-                stockProductos.Add(new(7049, ECategoria.JUGUETES, "Pelota", 389, "Hairy Beast", 32));
+                stockProductos.Add(new(7862, ECategoria.ALIMENTOS, "Alimento Adultos Pescado", 444.20, "Whiskas", 86, 1));
+                stockProductos.Add(new(9511, ECategoria.ALIMENTOS, "Alimento En Sobre Carne", 84.60, "Pedigree", 45, 0.1));
+                stockProductos.Add(new(3628, ECategoria.LIMPIEZA, "Dentastix", 358.98, "Pedigree", 15, 0.025));
+                stockProductos.Add(new(7049, ECategoria.JUGUETES, "Pelota", 389, "Hairy Beast", 32, 0.3));
             }
         }
 
@@ -84,6 +85,26 @@ namespace Biblioteca
         }
 
         /// <summary>
+        /// Calcula el subtotal incluyendo el costo de envio
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="costoEnvio"></param>
+        /// <returns></returns>
+        public static double CalcularSubtotal(List<Producto> productos, double costoEnvio)
+        {
+            double total = 0;
+
+            foreach (Producto producto in productos)
+                total += producto.Precio * producto.Cantidad;
+
+            return total + costoEnvio;
+        }
+
+        public static double CalcularPrecioConEnvio(bool conEnvio, List<Producto> ventaEnCurso, double costoDeEnvio)
+        {
+            return conEnvio ? CalcularSubtotal(ventaEnCurso, costoDeEnvio) : CalcularSubtotal(ventaEnCurso);
+        }
+        /// <summary>
         /// Calcula el total con recargo en caso de pagar en cuotas
         /// </summary>
         /// <param name="subtotal">Valor de la compra</param>
@@ -106,6 +127,5 @@ namespace Biblioteca
                     
             }
         }
-
     }
 }

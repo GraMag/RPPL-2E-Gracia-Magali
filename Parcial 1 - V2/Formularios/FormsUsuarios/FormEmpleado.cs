@@ -21,28 +21,19 @@ namespace Formularios
         public FormEmpleado()
         {
             InitializeComponent();
-        }
-
-        public FormEmpleado(Petshop petshop)
-            : this()
-        {
-            this.petshop = petshop;
-            Controlador.ListarUsuarios(this.petshop);
+            darkmode = false;
+            timer = new Timer();
         }
 
         public FormEmpleado(Petshop petshop, Usuario user)
-             : this(petshop)
+             : this()
          {
+             this.petshop = petshop;
+             Controlador.ListarUsuarios(this.petshop);
              lblBienvenido.Text = $"Hola, {user.Nombre}";
              lblDatos.Text = user.ToString();
          }
 
-        public FormEmpleado(Usuario user)
-            : this()
-        {
-            lblBienvenido.Text = $"Hola, {user.Nombre}";
-            lblDatos.Text = user.ToString();
-        }
         public Petshop Petshop
         {
             get
@@ -76,8 +67,6 @@ namespace Formularios
         }
         private void FormEmpleado_Load(object sender, EventArgs e)
         {
-            darkmode = false;
-            timer = new Timer();
             timer.Tick += delegate {
                 this.Close();
             };
@@ -163,23 +152,10 @@ namespace Formularios
         }
 
         /// <summary>
-        /// Busca en la lista un Cliente segun su ID, nombre o apellido
+        /// Cambia el color de la pantalla
         /// </summary>
-        /// <param name="lista">Lista de clientes</param>
-        private void Buscar(List<Cliente> lista)
-        {
-            dataGridView.DataSource = lista.FindAll(item => item.Id.ToString().Contains(txtBoxBuscarU.Text) || item.Nombre.ToLower().Contains(txtBoxBuscarU.Text.ToLower()) || item.Apellido.ToLower().Contains(txtBoxBuscarU.Text.ToLower()));
-        }
-
-        /// <summary>
-        /// Busca en la lista de Productos segun ID o nombre
-        /// </summary>
-        /// <param name="lista">Lista de productos</param>
-        private void Buscar(List<Producto> lista)
-        {
-            dataGridView.DataSource = lista.FindAll(item => item.Id.ToString().Contains(txtBoxBuscar.Text) || item.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower()));
-        }
-
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected virtual void btnDarkmode_Click(object sender, EventArgs e)
         {
             if(!darkmode)
@@ -204,6 +180,23 @@ namespace Formularios
                 lblBuscar.ForeColor = Color.White;
             }
             darkmode = !darkmode;
+        }
+        /// <summary>
+        /// Busca en la lista un Cliente segun su ID, nombre o apellido
+        /// </summary>
+        /// <param name="lista">Lista de clientes</param>
+        private void Buscar(List<Cliente> lista)
+        {
+            dataGridView.DataSource = lista.FindAll(item => item.Id.ToString().Contains(txtBoxBuscarU.Text) || item.Nombre.ToLower().Contains(txtBoxBuscarU.Text.ToLower()) || item.Apellido.ToLower().Contains(txtBoxBuscarU.Text.ToLower()));
+        }
+
+        /// <summary>
+        /// Busca en la lista de Productos segun ID o nombre
+        /// </summary>
+        /// <param name="lista">Lista de productos</param>
+        private void Buscar(List<Producto> lista)
+        {
+            dataGridView.DataSource = lista.FindAll(item => item.Id.ToString().Contains(txtBoxBuscar.Text) || item.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower()));
         }
     }
 }

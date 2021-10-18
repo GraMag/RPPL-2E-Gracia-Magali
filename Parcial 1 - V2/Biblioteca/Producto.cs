@@ -15,7 +15,7 @@ namespace Biblioteca
         string marca;
         int cantidad;
         int idProducto;
-        string peso;
+        double peso;
 
         public Producto()
         {
@@ -33,7 +33,7 @@ namespace Biblioteca
             this.idProducto = id;
         }
 
-        public Producto(int id, ECategoria categoria, string nombre, double precio, string marca, int cantidad, string peso)
+        public Producto(int id, ECategoria categoria, string nombre, double precio, string marca, int cantidad, double peso)
             : this(id, categoria, nombre, precio, marca, cantidad)
         {
             this.peso = peso;
@@ -95,7 +95,7 @@ namespace Biblioteca
             }
         }
 
-        public string Peso
+        public double Peso
         {
             get
             {

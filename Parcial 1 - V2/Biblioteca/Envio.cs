@@ -13,7 +13,7 @@ namespace Biblioteca
         private EEnvio envioTipo;
         private double costoDeEnvio;
         private int idVenta;
-        
+
         public Envio()
         {
             Distancia = Distancia;
@@ -23,11 +23,11 @@ namespace Biblioteca
         public double CostoDeEnvio
         {
             get { return costoDeEnvio; }
-            set 
-            { 
-                if(envioTipo == EEnvio.Moto)
+            set
+            {
+                if (envioTipo == EEnvio.Moto)
                 {
-                    costoDeEnvio = 300 + distancia * 0.2 + value * 0.01; 
+                    costoDeEnvio = 300 + distancia * 0.2 + value * 0.01;
                 }
                 else
                 {
@@ -48,10 +48,10 @@ namespace Biblioteca
             {
                 return distancia;
             }
-            set 
+            set
             {
                 Random random = new Random();
-                distancia = random.Next(1,1000); 
+                distancia = random.Next(1, 1000);
             }
         }
 
@@ -69,28 +69,23 @@ namespace Biblioteca
 
         public double CalcularEnvio(List<Producto> productos)
         {
-            if(Distancia > 200)
+            int totalProductos = 0;
+            double totalPeso = 0;
+            foreach (Producto item in productos)
             {
-                EnvioTipo = EEnvio.Flete;
+                totalProductos += item.Cantidad;
+                totalPeso += item.Peso;
             }
-            else
+            if (totalProductos < 50 && totalPeso < 15)
             {
-                int totalProductos = 0;
-                foreach (Producto item in productos)
-                {
-                    if (item.Cantidad > 10 || item.ECategoriaProp == Enum.ECategoria.CAMAS || totalProductos > 50)
-                    {
-                        this.EnvioTipo = EEnvio.Flete;
-                        CostoDeEnvio = totalProductos;
-                        return CostoDeEnvio;
-                    }
-                    totalProductos += item.Cantidad;
-                    CostoDeEnvio = totalProductos;
-                }
                 this.EnvioTipo = EEnvio.Moto;
                 CostoDeEnvio = totalProductos;
-            }        
+                return costoDeEnvio;
+            }
+            this.EnvioTipo = EEnvio.Flete;
+            CostoDeEnvio = totalProductos;
             return CostoDeEnvio;
         }
     }
 }
+

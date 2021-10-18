@@ -26,8 +26,8 @@ namespace Formularios
             cmbBoxFiltrar.DataSource = Enum.GetValues(typeof(ECategoria));
             ventaEnCurso = new List<Producto>();
             lblTotal.Text = $"Total: ${Controlador.CalcularSubtotal(ventaEnCurso).ToString("#.00")}";
-            cmbCuotas.SelectedIndex = 0;
             envio = new Envio();
+            cmbCuotas.SelectedIndex = 0;
         }
 
         public FormVentas(Petshop petshop)
@@ -134,7 +134,7 @@ namespace Formularios
                 lblCuota.Visible = false;
                 lblCuotasOVuelto.Visible = false;
                 cmbCuotas.Visible = false;
-                lblTotal.Text = $"Total: ${Controlador.CalcularSubtotal(ventaEnCurso).ToString("#.00")}";
+                lblTotal.Text = $"Total: ${Controlador.CalcularPrecioConEnvio(ckboxEnvio.Checked, ventaEnCurso, envio.CostoDeEnvio).ToString("#.00")}";
             }
         }
 
@@ -146,10 +146,9 @@ namespace Formularios
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
             if(double.TryParse(txtBoxPago.Text, out double pago))
-            {
-                
+            {                
                 string opcionseleccionada = cmbBoxPago.Text;
-                double subtotal = Controlador.CalcularSubtotal(ventaEnCurso);
+                double subtotal = Controlador.CalcularPrecioConEnvio(ckboxEnvio.Checked, ventaEnCurso, envio.CostoDeEnvio);
                 int cuotas = int.Parse(cmbCuotas.Text);
                 double total = Controlador.CalcularTotalConCuotas(subtotal, cuotas);
 
@@ -219,8 +218,8 @@ namespace Formularios
         /// <param name="e"></param>
         private void cmbCuotas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            double subtotal = Controlador.CalcularSubtotal(ventaEnCurso);
             int cuotas = int.Parse(cmbCuotas.SelectedItem.ToString());
+            double subtotal = Controlador.CalcularPrecioConEnvio(ckboxEnvio.Checked, ventaEnCurso, envio.CostoDeEnvio);
             double total = Controlador.CalcularTotalConCuotas(subtotal, cuotas);
             lblTotal.Text = $"Subtotal: ${subtotal.ToString("#.00")}";
             lblTotalCuotas.Text = $"Total: ${total.ToString("#.00")}";
@@ -234,7 +233,7 @@ namespace Formularios
         /// <param name="e"></param>
         private void txtBoxPago_TextChanged(object sender, EventArgs e)
         {
-            double subtotal = Controlador.CalcularSubtotal(ventaEnCurso);
+            double subtotal = Controlador.CalcularPrecioConEnvio(ckboxEnvio.Checked, ventaEnCurso, envio.CostoDeEnvio);
 
             if (double.TryParse(txtBoxPago.Text, out double pago) && cmbBoxPago.Text == "Efectivo" && subtotal < pago)
             {
@@ -243,12 +242,29 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ckboxEnvio_CheckStateChanged(object sender, EventArgs e)
         {
+            if (ckboxEnvio.Checked)
+            {
+                double costoDeEnvio = envio.CalcularEnvio(ventaEnCurso);
+                lblCostodeEnvio.Text = $"Costo de envio: ${costoDeEnvio.ToString("#.00")}";
+                lblDistancia.Text = $"Distancia: {envio.Distancia.ToString()}kms";
+                lblTotalCuotas.Visible = true;
+                lblTotalCuotas.Text = $"Total con envio: ${(Controlador.CalcularSubtotal(ventaEnCurso)+costoDeEnvio).ToString("#.00")}";
+            }
+            else
+            {
+                lblTotalCuotas.Visible = false;
+            }
             lblCostodeEnvio.Visible = !lblCostodeEnvio.Visible;
             lblDistancia.Visible = !lblDistancia.Visible;
-            lblDistancia.Text = $"Distancia: {envio.Distancia.ToString()}kms";
-            lblCostodeEnvio.Text = $"Costo de envio: ${envio.CalcularEnvio(ventaEnCurso).ToString()}";
         }
+
+        
     }
 }
