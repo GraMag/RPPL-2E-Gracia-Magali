@@ -18,8 +18,7 @@ namespace Formularios.FormDeRegistros
         public FormRegEmp()
         {
             InitializeComponent();
-            comboCargo.DataSource = Enum.GetValues(typeof(ECargo));
-            
+            comboCargo.DataSource = Enum.GetValues(typeof(ECargo));    
         }
 
         public FormRegEmp(Empleado empleado)
@@ -28,11 +27,7 @@ namespace Formularios.FormDeRegistros
             this.empleado = empleado;
             TxtNombre = empleado.Nombre;
             TxtApellido = empleado.Apellido;
-            TxtMail.Text = empleado.Email;
-            TxtMail.Enabled = false;
             comboCargo.Text = empleado.Cargo.ToString();
         }
-
-  
     }
 }

@@ -19,12 +19,6 @@ namespace Formularios
         public FormEmpleado()
         {
             InitializeComponent();
-            timer = new System.Windows.Forms.Timer();
-            timer.Tick += delegate {
-                this.Close();
-            };
-            timer.Interval = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
-            timer.Start();
         }
 
         public FormEmpleado(Petshop petshop)
@@ -72,8 +66,12 @@ namespace Formularios
         /// <param name="e"></param>
         protected virtual void btnClientes_Click(object sender, EventArgs e)
         {
+            dataGridView.DataSource = null;
             dataGridView.DataSource = petshop.Clientes;
             this.dataGridView.Columns["Password"].Visible = false;
+            txtBoxBuscarU.Visible = true;
+            txtBoxBuscar.Visible = false;
+            lblBuscar.Visible = true;
         }
 
         /// <summary>
@@ -83,7 +81,11 @@ namespace Formularios
         /// <param name="e"></param>
         private void btnProductos_Click(object sender, EventArgs e)
         {
+            dataGridView.DataSource = null;
             dataGridView.DataSource = petshop.Productos;
+            lblBuscar.Visible = true;
+            txtBoxBuscarU.Visible = false;
+            txtBoxBuscar.Visible = true;
         }
 
         /// <summary>
@@ -114,6 +116,54 @@ namespace Formularios
             FormLogin formLogin = new FormLogin();
             this.Hide();
             formLogin.ShowDialog();
+        }
+
+        /// <summary>
+        /// Busca productos por nombre o ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBoxBuscarProd_TextChanged(object sender, EventArgs e)
+        {
+            Buscar(petshop.Productos);
+        }
+
+        /// <summary>
+        /// Busca clientes por nombre o ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBoxBuscarU_TextChanged(object sender, EventArgs e)
+        {
+            Buscar(petshop.Clientes);
+        }
+
+        /// <summary>
+        /// Busca en la lista un Cliente segun su ID, nombre o apellido
+        /// </summary>
+        /// <param name="lista">Lista de clientes</param>
+        private void Buscar(List<Cliente> lista)
+        {
+            dataGridView.DataSource = lista.FindAll(item => item.Id.ToString().Contains(txtBoxBuscarU.Text) || item.Nombre.ToLower().Contains(txtBoxBuscarU.Text.ToLower()) || item.Apellido.ToLower().Contains(txtBoxBuscarU.Text.ToLower()));
+        }
+
+        /// <summary>
+        /// Busca en la lista de Productos segun ID o nombre
+        /// </summary>
+        /// <param name="lista">Lista de productos</param>
+        private void Buscar(List<Producto> lista)
+        {
+            dataGridView.DataSource = lista.FindAll(item => item.Id.ToString().Contains(txtBoxBuscar.Text) || item.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower()));
+        }
+
+        private void FormEmpleado_Load(object sender, EventArgs e)
+        {
+            timer = new Timer();
+            timer.Tick += delegate {
+                this.Close();
+            };
+            timer.Interval = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
+            timer.Start();
         }
     }
 }

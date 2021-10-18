@@ -48,7 +48,7 @@ namespace Formularios
             else if (usuario is Cliente)
                 MessageBox.Show(EUsuario.Cliente.ToString());
             else
-                MessageBox.Show("Blocky, nuestro perro guardian, no te reconoce.", "Usuario o contraseña invalidos", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
+                MessageBox.Show("Blocky, nuestro perro guardian, no te reconoce.", "Usuario o contraseña invalidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         /// <summary>
@@ -72,7 +72,5 @@ namespace Formularios
             this.txtBxUsuario.Text = "ricky.fort@thepetshop.com";
             this.txtBxPassword.Text = "Maiameeee";
         }
-
-  
     }
 }

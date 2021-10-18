@@ -65,7 +65,7 @@ namespace Formularios
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {  
             DataGridViewProp.DataSource = null;
-            FormRegistro formRegistro = new FormRegistro(Petshop);
+            FormRegCliente formRegistro = new FormRegCliente(Petshop);
             formRegistro.ShowDialog();
             DataGridViewProp.DataSource = Petshop.Clientes;
             this.DataGridViewProp.Columns["Password"].Visible = false;

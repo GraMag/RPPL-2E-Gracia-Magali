@@ -31,15 +31,12 @@ namespace Formularios
         {
             System.Windows.Forms.Button btnAceptar;
             System.Windows.Forms.Button button1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro));
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
-            this.lblMail = new System.Windows.Forms.Label();
             this.lblDNI = new System.Windows.Forms.Label();
             this.lblFechaNac = new System.Windows.Forms.Label();
             this.txtBoxNombre = new System.Windows.Forms.TextBox();
             this.txtBoxApellido = new System.Windows.Forms.TextBox();
-            this.txtBoxMail = new System.Windows.Forms.TextBox();
             this.txtBoxDNI = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             btnAceptar = new System.Windows.Forms.Button();
@@ -86,21 +83,11 @@ namespace Formularios
             this.lblApellido.TabIndex = 1;
             this.lblApellido.Text = "Apellido:";
             // 
-            // lblMail
-            // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.BackColor = System.Drawing.Color.Transparent;
-            this.lblMail.Location = new System.Drawing.Point(25, 144);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(55, 20);
-            this.lblMail.TabIndex = 2;
-            this.lblMail.Text = "E-mail:";
-            // 
             // lblDNI
             // 
             this.lblDNI.AutoSize = true;
             this.lblDNI.BackColor = System.Drawing.Color.Transparent;
-            this.lblDNI.Location = new System.Drawing.Point(25, 187);
+            this.lblDNI.Location = new System.Drawing.Point(25, 145);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(38, 20);
             this.lblDNI.TabIndex = 3;
@@ -130,16 +117,9 @@ namespace Formularios
             this.txtBoxApellido.Size = new System.Drawing.Size(207, 27);
             this.txtBoxApellido.TabIndex = 6;
             // 
-            // txtBoxMail
-            // 
-            this.txtBoxMail.Location = new System.Drawing.Point(100, 137);
-            this.txtBoxMail.Name = "txtBoxMail";
-            this.txtBoxMail.Size = new System.Drawing.Size(207, 27);
-            this.txtBoxMail.TabIndex = 7;
-            // 
             // txtBoxDNI
             // 
-            this.txtBoxDNI.Location = new System.Drawing.Point(100, 180);
+            this.txtBoxDNI.Location = new System.Drawing.Point(100, 138);
             this.txtBoxDNI.Name = "txtBoxDNI";
             this.txtBoxDNI.Size = new System.Drawing.Size(207, 27);
             this.txtBoxDNI.TabIndex = 8;
@@ -159,7 +139,6 @@ namespace Formularios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(344, 551);
             this.ControlBox = false;
@@ -167,12 +146,10 @@ namespace Formularios
             this.Controls.Add(btnAceptar);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtBoxDNI);
-            this.Controls.Add(this.txtBoxMail);
             this.Controls.Add(this.txtBoxApellido);
             this.Controls.Add(this.txtBoxNombre);
             this.Controls.Add(this.lblFechaNac);
             this.Controls.Add(this.lblDNI);
-            this.Controls.Add(this.lblMail);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
             this.DoubleBuffered = true;
@@ -192,12 +169,10 @@ namespace Formularios
 
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.Label lblFechaNac;
         private System.Windows.Forms.TextBox txtBoxNombre;
         private System.Windows.Forms.TextBox txtBoxApellido;
-        private System.Windows.Forms.TextBox txtBoxMail;
         private System.Windows.Forms.TextBox txtBoxDNI;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }

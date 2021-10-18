@@ -38,7 +38,7 @@ namespace Formularios.FormDeRegistros
             // 
             this.lblCargo.AutoSize = true;
             this.lblCargo.BackColor = System.Drawing.Color.Transparent;
-            this.lblCargo.Location = new System.Drawing.Point(25, 259);
+            this.lblCargo.Location = new System.Drawing.Point(25, 187);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(52, 20);
             this.lblCargo.TabIndex = 11;
@@ -47,7 +47,7 @@ namespace Formularios.FormDeRegistros
             // comboCargo
             // 
             this.comboCargo.FormattingEnabled = true;
-            this.comboCargo.Location = new System.Drawing.Point(100, 251);
+            this.comboCargo.Location = new System.Drawing.Point(100, 179);
             this.comboCargo.Name = "comboCargo";
             this.comboCargo.Size = new System.Drawing.Size(206, 28);
             this.comboCargo.TabIndex = 12;
@@ -62,7 +62,7 @@ namespace Formularios.FormDeRegistros
             this.Controls.Add(this.comboCargo);
             this.Controls.Add(this.lblCargo);
             this.Name = "FormRegEmp";
-            this.Text = "FormRegEmp";
+            this.Text = "Actualizar Empleado";
             this.Controls.SetChildIndex(this.lblCargo, 0);
             this.Controls.SetChildIndex(this.comboCargo, 0);
             this.ResumeLayout(false);

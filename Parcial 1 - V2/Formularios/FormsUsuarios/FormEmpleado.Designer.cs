@@ -37,6 +37,9 @@ namespace Formularios
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.txtBoxBuscar = new System.Windows.Forms.TextBox();
+            this.txtBoxBuscarU = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -116,6 +119,34 @@ namespace Formularios
             this.dataGridView.TabIndex = 9;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Location = new System.Drawing.Point(702, 125);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(55, 20);
+            this.lblBuscar.TabIndex = 12;
+            this.lblBuscar.Text = "Buscar:";
+            this.lblBuscar.Visible = false;
+            // 
+            // txtBoxBuscar
+            // 
+            this.txtBoxBuscar.Location = new System.Drawing.Point(763, 122);
+            this.txtBoxBuscar.Name = "txtBoxBuscar";
+            this.txtBoxBuscar.Size = new System.Drawing.Size(202, 27);
+            this.txtBoxBuscar.TabIndex = 13;
+            this.txtBoxBuscar.Visible = false;
+            this.txtBoxBuscar.TextChanged += new System.EventHandler(this.txtBoxBuscarProd_TextChanged);
+            // 
+            // txtBoxBuscarU
+            // 
+            this.txtBoxBuscarU.Location = new System.Drawing.Point(763, 122);
+            this.txtBoxBuscarU.Name = "txtBoxBuscarU";
+            this.txtBoxBuscarU.Size = new System.Drawing.Size(202, 27);
+            this.txtBoxBuscarU.TabIndex = 14;
+            this.txtBoxBuscarU.Visible = false;
+            this.txtBoxBuscarU.TextChanged += new System.EventHandler(this.txtBoxBuscarU_TextChanged);
+            // 
             // FormEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -123,6 +154,9 @@ namespace Formularios
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(993, 494);
+            this.Controls.Add(this.txtBoxBuscarU);
+            this.Controls.Add(this.txtBoxBuscar);
+            this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.btnClientes);
@@ -132,10 +166,12 @@ namespace Formularios
             this.Name = "FormEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Pet Store";
+            this.Load += new System.EventHandler(this.FormEmpleado_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -148,5 +184,8 @@ namespace Formularios
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.TextBox txtBoxBuscar;
+        private System.Windows.Forms.TextBox txtBoxBuscarU;
     }
 }

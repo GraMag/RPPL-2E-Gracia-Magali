@@ -25,7 +25,6 @@ namespace Formularios
         private void button1_Click(object sender, EventArgs e)
         {
             FormLogin formLogin = new FormLogin();
-            btnIngresar.Hide();
             formLogin.Show();
         }
 

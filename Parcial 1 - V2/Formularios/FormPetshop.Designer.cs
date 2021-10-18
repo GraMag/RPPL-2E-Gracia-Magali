@@ -66,6 +66,7 @@ namespace Formularios
             this.ClientSize = new System.Drawing.Size(1033, 524);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnIngresar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPetshop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

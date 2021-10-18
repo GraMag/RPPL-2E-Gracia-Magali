@@ -41,27 +41,13 @@ namespace Formularios
             }
         }
 
-        public TextBox TxtMail
-        {
-            get
-            {
-                return txtBoxMail;
-            }
-            set
-            {
-                txtBoxMail = value;
-            }
-        }
-
         /// <summary>
         /// Aceptar usuario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAceptar_Click(object sender, EventArgs e)
+        protected virtual void btnAceptar_Click(object sender, EventArgs e)
         {
-
-
             if ((string.IsNullOrWhiteSpace(txtBoxNombre.Text) && string.IsNullOrWhiteSpace(txtBoxNombre.Text)))
             {
                 MessageBox.Show("Debe tener nombre y apellido.", "Esta persona es un NN", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -71,11 +57,11 @@ namespace Formularios
                 DialogResult result = MessageBox.Show("Confirmar datos", "Nuevo Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    Cliente cliente = new Cliente(txtBoxNombre.Text, txtBoxApellido.Text, txtBoxMail.Text, txtBoxDNI.Text, dateTimePicker1.Value);
-                    petshop.Clientes.Add(cliente);
-                    FormVentas formVentas = new FormVentas(petshop, cliente);
+                 //   Cliente cliente = new Cliente(txtBoxNombre.Text, txtBoxApellido.Text, txtBoxDNI.Text, dateTimePicker1.Value);
+                   // petshop.Clientes.Add(cliente);
+                   // FormVentas formVentas = new FormVentas(petshop, cliente);
                     this.Hide();
-                    formVentas.ShowDialog();
+                    //formVentas.ShowDialog();
                 }
             }
         }

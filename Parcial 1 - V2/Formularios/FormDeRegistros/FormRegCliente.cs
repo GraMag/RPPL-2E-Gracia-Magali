@@ -25,9 +25,9 @@ namespace Formularios.FormDeRegistros
             Petshop = petshop;
         }
 
-        private void FormRegCliente_Load(object sender, EventArgs e)
+        protected override void btnAceptar_Click(object sender, EventArgs e)
         {
-
+            base.btnAceptar_Click(sender, e);
         }
     }
 }
