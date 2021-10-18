@@ -12,6 +12,7 @@ namespace Biblioteca
         private static int ultimoId;
         private string formaDePago;
         private int cuotas;
+        private bool envio;
 
         static Venta()
         {
@@ -24,6 +25,7 @@ namespace Biblioteca
             this.compra = compra;
             this.date = DateTime.Today;
             this.formaDePago = formaDePago;
+            this.envio = false;
         }
 
         public Venta(Cliente cliente, List<Producto> compra, string formaDePago, int cuotas)

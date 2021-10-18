@@ -51,6 +51,9 @@ namespace Formularios
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lblTotalCuotas = new System.Windows.Forms.Label();
             this.lblCuota = new System.Windows.Forms.Label();
+            this.ckboxEnvio = new System.Windows.Forms.CheckBox();
+            this.lblDistancia = new System.Windows.Forms.Label();
+            this.lblCostodeEnvio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVentaEnCurso)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +81,7 @@ namespace Formularios
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.BackColor = System.Drawing.Color.Transparent;
+            this.lblCliente.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblCliente.Location = new System.Drawing.Point(134, 27);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(58, 20);
@@ -88,7 +91,7 @@ namespace Formularios
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.BackColor = System.Drawing.Color.Transparent;
+            this.lblID.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblID.Location = new System.Drawing.Point(21, 27);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(27, 20);
@@ -98,7 +101,7 @@ namespace Formularios
             // lblIdProducto
             // 
             this.lblIdProducto.AutoSize = true;
-            this.lblIdProducto.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdProducto.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblIdProducto.Location = new System.Drawing.Point(21, 65);
             this.lblIdProducto.Name = "lblIdProducto";
             this.lblIdProducto.Size = new System.Drawing.Size(91, 20);
@@ -125,7 +128,7 @@ namespace Formularios
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotal.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblTotal.Location = new System.Drawing.Point(21, 366);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(45, 20);
@@ -165,7 +168,7 @@ namespace Formularios
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(21, 417);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 20);
@@ -189,7 +192,7 @@ namespace Formularios
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(21, 489);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 20);
@@ -199,7 +202,7 @@ namespace Formularios
             // lblCuotasOVuelto
             // 
             this.lblCuotasOVuelto.AutoSize = true;
-            this.lblCuotasOVuelto.BackColor = System.Drawing.Color.Transparent;
+            this.lblCuotasOVuelto.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblCuotasOVuelto.Location = new System.Drawing.Point(21, 457);
             this.lblCuotasOVuelto.Name = "lblCuotasOVuelto";
             this.lblCuotasOVuelto.Size = new System.Drawing.Size(57, 20);
@@ -243,7 +246,7 @@ namespace Formularios
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.BackColor = System.Drawing.Color.Transparent;
+            this.lblCantidad.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblCantidad.Location = new System.Drawing.Point(21, 102);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(72, 20);
@@ -253,7 +256,7 @@ namespace Formularios
             // lblTotalCuotas
             // 
             this.lblTotalCuotas.AutoSize = true;
-            this.lblTotalCuotas.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalCuotas.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblTotalCuotas.Location = new System.Drawing.Point(208, 366);
             this.lblTotalCuotas.Name = "lblTotalCuotas";
             this.lblTotalCuotas.Size = new System.Drawing.Size(45, 20);
@@ -264,7 +267,7 @@ namespace Formularios
             // lblCuota
             // 
             this.lblCuota.AutoSize = true;
-            this.lblCuota.BackColor = System.Drawing.Color.Transparent;
+            this.lblCuota.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblCuota.Location = new System.Drawing.Point(202, 391);
             this.lblCuota.Name = "lblCuota";
             this.lblCuota.Size = new System.Drawing.Size(51, 20);
@@ -272,13 +275,50 @@ namespace Formularios
             this.lblCuota.Text = "Cuota:";
             this.lblCuota.Visible = false;
             // 
+            // ckboxEnvio
+            // 
+            this.ckboxEnvio.AutoSize = true;
+            this.ckboxEnvio.Location = new System.Drawing.Point(21, 389);
+            this.ckboxEnvio.Name = "ckboxEnvio";
+            this.ckboxEnvio.Size = new System.Drawing.Size(67, 24);
+            this.ckboxEnvio.TabIndex = 23;
+            this.ckboxEnvio.Text = "Envio";
+            this.ckboxEnvio.UseVisualStyleBackColor = true;
+            this.ckboxEnvio.CheckStateChanged += new System.EventHandler(this.ckboxEnvio_CheckStateChanged);
+            // 
+            // lblDistancia
+            // 
+            this.lblDistancia.AutoSize = true;
+            this.lblDistancia.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDistancia.Location = new System.Drawing.Point(21, 520);
+            this.lblDistancia.Name = "lblDistancia";
+            this.lblDistancia.Size = new System.Drawing.Size(73, 20);
+            this.lblDistancia.TabIndex = 24;
+            this.lblDistancia.Text = "Distancia:";
+            this.lblDistancia.Visible = false;
+            // 
+            // lblCostodeEnvio
+            // 
+            this.lblCostodeEnvio.AutoSize = true;
+            this.lblCostodeEnvio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCostodeEnvio.Location = new System.Drawing.Point(180, 520);
+            this.lblCostodeEnvio.Name = "lblCostodeEnvio";
+            this.lblCostodeEnvio.Size = new System.Drawing.Size(111, 20);
+            this.lblCostodeEnvio.TabIndex = 25;
+            this.lblCostodeEnvio.Text = "Costo de envio:";
+            this.lblCostodeEnvio.Visible = false;
+            // 
             // FormVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 549);
+            this.Controls.Add(this.lblCostodeEnvio);
+            this.Controls.Add(this.lblDistancia);
+            this.Controls.Add(this.ckboxEnvio);
             this.Controls.Add(this.lblCuota);
             this.Controls.Add(this.lblTotalCuotas);
             this.Controls.Add(this.txtBoxCantidad);
@@ -337,5 +377,8 @@ namespace Formularios
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblTotalCuotas;
         private System.Windows.Forms.Label lblCuota;
+        private System.Windows.Forms.CheckBox ckboxEnvio;
+        private System.Windows.Forms.Label lblDistancia;
+        private System.Windows.Forms.Label lblCostodeEnvio;
     }
 }

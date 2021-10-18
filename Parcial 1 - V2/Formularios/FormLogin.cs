@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca;
 using Biblioteca.Enum;
+using Biblioteca.Excepciones;
 
 namespace Formularios
 {
@@ -31,24 +32,33 @@ namespace Formularios
         /// <param name="e"></param>
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            Usuario usuario = Controlador.Login(petshop.UsuariosRegistrados, txtBxUsuario.Text, txtBxPassword.Text);
+            try
+            {
+                Usuario usuario = Controlador.Login(petshop.UsuariosRegistrados, txtBxUsuario.Text, txtBxPassword.Text);
 
-            if (usuario is Administrador)
-            {
-                FormAdmin formAdmin = new FormAdmin(petshop, usuario);
-                this.Hide();
-                formAdmin.ShowDialog();
+                if (usuario is Administrador)
+                {
+                    FormAdmin formAdmin = new FormAdmin(petshop, usuario);
+                    this.Hide();
+                    formAdmin.ShowDialog();
+                }
+                else if (usuario is Empleado)
+                {
+                    FormEmpleado formEmpleado = new FormEmpleado(petshop, usuario);
+                    this.Hide();
+                    formEmpleado.ShowDialog();
+                }
+                else if (usuario is Cliente)
+                    MessageBox.Show(EUsuario.Cliente.ToString());
+                else
+                {
+                    throw new UsuarioInvalidoException();
+                }
             }
-            else if (usuario is Empleado)
+            catch (UsuarioInvalidoException uie)
             {
-                FormEmpleado formEmpleado = new FormEmpleado(petshop, usuario);
-                this.Hide();
-                formEmpleado.ShowDialog();
+                MessageBox.Show(uie.Message, "Usuario o contraseña invalidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (usuario is Cliente)
-                MessageBox.Show(EUsuario.Cliente.ToString());
-            else
-                MessageBox.Show("Blocky, nuestro perro guardian, no te reconoce.", "Usuario o contraseña invalidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         /// <summary>

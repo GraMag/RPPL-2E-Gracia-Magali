@@ -18,6 +18,8 @@ namespace Formularios
         Petshop petshop;
         List<Producto> ventaEnCurso;
         Cliente cliente;
+        Envio envio;
+
         public FormVentas()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Formularios
             ventaEnCurso = new List<Producto>();
             lblTotal.Text = $"Total: ${Controlador.CalcularSubtotal(ventaEnCurso).ToString("#.00")}";
             cmbCuotas.SelectedIndex = 0;
-
+            envio = new Envio();
         }
 
         public FormVentas(Petshop petshop)
@@ -40,7 +42,7 @@ namespace Formularios
         {
             this.cliente = cliente;
             this.lblID.Text = $"ID: {cliente.Id}";
-            this.lblCliente.Text = $"Nombre y apellido {cliente.Nombre} {cliente.Apellido}";
+            this.lblCliente.Text = $"Nombre y apellido: {cliente.Nombre} {cliente.Apellido}";
         }
 
         /// <summary>
@@ -145,6 +147,7 @@ namespace Formularios
         {
             if(double.TryParse(txtBoxPago.Text, out double pago))
             {
+                
                 string opcionseleccionada = cmbBoxPago.Text;
                 double subtotal = Controlador.CalcularSubtotal(ventaEnCurso);
                 int cuotas = int.Parse(cmbCuotas.Text);
@@ -238,6 +241,14 @@ namespace Formularios
                 lblCuotasOVuelto.Visible = true;
                 lblCuotasOVuelto.Text = $"Vuelto: {(pago - subtotal).ToString("#.00")}";
             }
+        }
+
+        private void ckboxEnvio_CheckStateChanged(object sender, EventArgs e)
+        {
+            lblCostodeEnvio.Visible = !lblCostodeEnvio.Visible;
+            lblDistancia.Visible = !lblDistancia.Visible;
+            lblDistancia.Text = $"Distancia: {envio.Distancia.ToString()}kms";
+            lblCostodeEnvio.Text = $"Costo de envio: ${envio.CalcularEnvio(ventaEnCurso).ToString()}";
         }
     }
 }

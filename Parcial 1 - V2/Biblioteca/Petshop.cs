@@ -14,7 +14,7 @@ namespace Biblioteca
         List<Empleado> empleados;
         List<Producto> productos;
         List<Venta> ventas;
-        
+        Queue<Envio> envios;
 
         private Petshop()
         {
@@ -23,6 +23,7 @@ namespace Biblioteca
             this.empleados = new List<Empleado>();
             this.productos = new List<Producto>();
             this.ventas = new List<Venta>();
+            this.envios = new Queue<Envio>();
         }
 
 
