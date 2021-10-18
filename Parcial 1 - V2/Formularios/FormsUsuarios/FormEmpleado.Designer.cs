@@ -48,9 +48,9 @@ namespace Formularios
             // 
             this.lblBienvenido.AutoSize = true;
             this.lblBienvenido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblBienvenido.Location = new System.Drawing.Point(17, 12);
+            this.lblBienvenido.Location = new System.Drawing.Point(15, 9);
             this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(102, 20);
+            this.lblBienvenido.Size = new System.Drawing.Size(81, 15);
             this.lblBienvenido.TabIndex = 0;
             this.lblBienvenido.Text = "Hola, Usuario!";
             // 
@@ -59,17 +59,19 @@ namespace Formularios
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.lblDatos);
             this.panel1.Controls.Add(this.lblBienvenido);
-            this.panel1.Location = new System.Drawing.Point(22, 23);
+            this.panel1.Location = new System.Drawing.Point(19, 17);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(943, 90);
+            this.panel1.Size = new System.Drawing.Size(825, 68);
             this.panel1.TabIndex = 1;
             // 
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnLogOut.Location = new System.Drawing.Point(863, 3);
+            this.btnLogOut.Location = new System.Drawing.Point(755, 2);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(77, 29);
+            this.btnLogOut.Size = new System.Drawing.Size(67, 22);
             this.btnLogOut.TabIndex = 2;
             this.btnLogOut.Text = "Logout";
             this.btnLogOut.UseVisualStyleBackColor = false;
@@ -79,18 +81,19 @@ namespace Formularios
             // 
             this.lblDatos.AutoSize = true;
             this.lblDatos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblDatos.Location = new System.Drawing.Point(342, 12);
+            this.lblDatos.Location = new System.Drawing.Point(299, 9);
             this.lblDatos.Name = "lblDatos";
-            this.lblDatos.Size = new System.Drawing.Size(401, 20);
+            this.lblDatos.Size = new System.Drawing.Size(317, 15);
             this.lblDatos.TabIndex = 1;
             this.lblDatos.Text = "Datos del tipito: nombre, apellido, fecha de nacimiento, rol";
             // 
             // btnClientes
             // 
             this.btnClientes.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnClientes.Location = new System.Drawing.Point(22, 225);
+            this.btnClientes.Location = new System.Drawing.Point(19, 169);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(322, 59);
+            this.btnClientes.Size = new System.Drawing.Size(282, 44);
             this.btnClientes.TabIndex = 4;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = false;
@@ -99,9 +102,10 @@ namespace Formularios
             // btnProductos
             // 
             this.btnProductos.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnProductos.Location = new System.Drawing.Point(22, 160);
+            this.btnProductos.Location = new System.Drawing.Point(19, 120);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(322, 59);
+            this.btnProductos.Size = new System.Drawing.Size(282, 44);
             this.btnProductos.TabIndex = 10;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = false;
@@ -111,49 +115,52 @@ namespace Formularios
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView.Location = new System.Drawing.Point(364, 160);
+            this.dataGridView.Location = new System.Drawing.Point(318, 120);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 29;
-            this.dataGridView.Size = new System.Drawing.Size(600, 313);
+            this.dataGridView.Size = new System.Drawing.Size(525, 235);
             this.dataGridView.TabIndex = 9;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // lblBuscar
             // 
             this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Location = new System.Drawing.Point(702, 125);
+            this.lblBuscar.Location = new System.Drawing.Point(614, 94);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(55, 20);
+            this.lblBuscar.Size = new System.Drawing.Size(45, 15);
             this.lblBuscar.TabIndex = 12;
             this.lblBuscar.Text = "Buscar:";
             this.lblBuscar.Visible = false;
             // 
             // txtBoxBuscar
             // 
-            this.txtBoxBuscar.Location = new System.Drawing.Point(763, 122);
+            this.txtBoxBuscar.Location = new System.Drawing.Point(668, 92);
+            this.txtBoxBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxBuscar.Name = "txtBoxBuscar";
-            this.txtBoxBuscar.Size = new System.Drawing.Size(202, 27);
+            this.txtBoxBuscar.Size = new System.Drawing.Size(177, 23);
             this.txtBoxBuscar.TabIndex = 13;
             this.txtBoxBuscar.Visible = false;
             this.txtBoxBuscar.TextChanged += new System.EventHandler(this.txtBoxBuscarProd_TextChanged);
             // 
             // txtBoxBuscarU
             // 
-            this.txtBoxBuscarU.Location = new System.Drawing.Point(763, 122);
+            this.txtBoxBuscarU.Location = new System.Drawing.Point(668, 92);
+            this.txtBoxBuscarU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxBuscarU.Name = "txtBoxBuscarU";
-            this.txtBoxBuscarU.Size = new System.Drawing.Size(202, 27);
+            this.txtBoxBuscarU.Size = new System.Drawing.Size(177, 23);
             this.txtBoxBuscarU.TabIndex = 14;
             this.txtBoxBuscarU.Visible = false;
             this.txtBoxBuscarU.TextChanged += new System.EventHandler(this.txtBoxBuscarU_TextChanged);
             // 
             // FormEmpleado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(993, 494);
+            this.ClientSize = new System.Drawing.Size(869, 370);
             this.Controls.Add(this.txtBoxBuscarU);
             this.Controls.Add(this.txtBoxBuscar);
             this.Controls.Add(this.lblBuscar);
@@ -163,6 +170,7 @@ namespace Formularios
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Pet Store";

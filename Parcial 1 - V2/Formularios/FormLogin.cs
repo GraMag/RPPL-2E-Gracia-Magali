@@ -21,10 +21,21 @@ namespace Formularios
         {
             InitializeComponent();
             petshop = Petshop.Singleton;
-            petshop.UsuariosRegistrados = Controlador.CargarUsuarios();
-            petshop.Productos = Controlador.CargarProductos();
+            Controlador.CargarUsuarios(petshop.UsuariosRegistrados);
+            Controlador.CargarProductos(petshop.Productos);
         }
 
+        public Petshop Petshop
+        {
+            get
+            {
+                return petshop;
+            }
+            set
+            {
+                petshop = value;
+            }
+        }
         /// <summary>
         /// Abre el formulario correspondiente al usuario
         /// </summary>
@@ -34,19 +45,21 @@ namespace Formularios
         {
             try
             {
-                Usuario usuario = Controlador.Login(petshop.UsuariosRegistrados, txtBxUsuario.Text, txtBxPassword.Text);
+                Usuario usuario = Controlador.Login(Petshop.UsuariosRegistrados, txtBxUsuario.Text, txtBxPassword.Text);
 
                 if (usuario is Administrador)
                 {
-                    FormAdmin formAdmin = new FormAdmin(petshop, usuario);
+                    FormAdmin formAdmin = new FormAdmin(Petshop, usuario);
                     this.Hide();
                     formAdmin.ShowDialog();
+                    this.Show();
                 }
                 else if (usuario is Empleado)
                 {
-                    FormEmpleado formEmpleado = new FormEmpleado(petshop, usuario);
+                    FormEmpleado formEmpleado = new FormEmpleado(Petshop, usuario);
                     this.Hide();
                     formEmpleado.ShowDialog();
+                    this.Show();
                 }
                 else if (usuario is Cliente)
                     MessageBox.Show(EUsuario.Cliente.ToString());

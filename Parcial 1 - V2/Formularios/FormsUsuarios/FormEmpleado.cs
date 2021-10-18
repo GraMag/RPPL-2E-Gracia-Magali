@@ -16,6 +16,8 @@ namespace Formularios
     {
         Petshop petshop;
         Timer timer;
+        Boolean darkmode;
+
         public FormEmpleado()
         {
             InitializeComponent();
@@ -29,12 +31,18 @@ namespace Formularios
         }
 
         public FormEmpleado(Petshop petshop, Usuario user)
-            : this(petshop)
+             : this(petshop)
+         {
+             lblBienvenido.Text = $"Hola, {user.Nombre}";
+             lblDatos.Text = user.ToString();
+         }
+
+        public FormEmpleado(Usuario user)
+            : this()
         {
             lblBienvenido.Text = $"Hola, {user.Nombre}";
             lblDatos.Text = user.ToString();
         }
-
         public Petshop Petshop
         {
             get
@@ -59,6 +67,17 @@ namespace Formularios
             }
         }
 
+        private void FormEmpleado_Load(object sender, EventArgs e)
+        {
+            darkmode = false;
+            timer = new Timer();
+            timer.Tick += delegate {
+                this.Close();
+            };
+            timer.Interval = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
+            timer.Start();
+        }
+        
         /// <summary>
         /// Muestra clientras
         /// </summary>
@@ -113,9 +132,7 @@ namespace Formularios
         /// <param name="e"></param>
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            FormLogin formLogin = new FormLogin();
-            this.Hide();
-            formLogin.ShowDialog();
+            this.Close();
         }
 
         /// <summary>
@@ -154,16 +171,6 @@ namespace Formularios
         private void Buscar(List<Producto> lista)
         {
             dataGridView.DataSource = lista.FindAll(item => item.Id.ToString().Contains(txtBoxBuscar.Text) || item.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower()));
-        }
-
-        private void FormEmpleado_Load(object sender, EventArgs e)
-        {
-            timer = new Timer();
-            timer.Tick += delegate {
-                this.Close();
-            };
-            timer.Interval = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
-            timer.Start();
         }
     }
 }

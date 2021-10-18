@@ -12,32 +12,31 @@ namespace Biblioteca
         /// <summary>
         /// Hardcodea distintas clases de usuarios
         /// </summary>
-        /// <returns>Devuelve una lista de usuarios</returns>
-        public static List<Usuario> CargarUsuarios()
+        public static void CargarUsuarios(List<Usuario> usuariosRegistrados)
         {
-            List<Usuario> usuariosRegistrados = new List<Usuario>();
-            usuariosRegistrados.Add(new Administrador("Bugs", "Bunny", "V13j0"));
-            usuariosRegistrados.Add(new Cliente("Peppa", "Pig", "D1n0s4ur10"));
-            usuariosRegistrados.Add(new Empleado("Ranger", "Rosa", "AlphaAyAyAyAyAy", Enum.ECargo.RRHH));
-            usuariosRegistrados.Add(new Cliente("Mirtha", "Legrand", "MCMXXVII A.C."));
-            usuariosRegistrados.Add(new Empleado("Ricky", "Fort", "Maiameeee", Enum.ECargo.CONTABLE));
-
-            return usuariosRegistrados;
+            if (usuariosRegistrados.Count == 0)
+            {
+                usuariosRegistrados.Add(new Administrador("Bugs", "Bunny", "V13j0"));
+                usuariosRegistrados.Add(new Cliente("Peppa", "Pig", "D1n0s4ur10"));
+                usuariosRegistrados.Add(new Empleado("Ranger", "Rosa", "AlphaAyAyAyAyAy", ECargo.RRHH));
+                usuariosRegistrados.Add(new Cliente("Mirtha", "Legrand", "MCMXXVII A.C."));
+                usuariosRegistrados.Add(new Empleado("Ricky", "Fort", "Maiameeee", ECargo.CONTABLE));
+            }
         }
 
         /// <summary>
         /// Hardcodea una lista de productos
         /// </summary>
         /// <returns>Devuelve una lista de productos</returns>
-        public static List<Producto> CargarProductos()
-        {
-            List<Producto> stockProductos = new List<Producto>();
-            stockProductos.Add(new(7862, ECategoria.ALIMENTOS, "Alimento Adultos Pescado", 444.20, "Whiskas", 86, "1Kg"));
-            stockProductos.Add(new(9511, ECategoria.ALIMENTOS, "Alimento En Sobre Carne", 84.60, "Pedigree", 45, "100 Gr"));
-            stockProductos.Add(new(3628, ECategoria.LIMPIEZA, "Dentastix", 358.98, "Pedigree", 15));
-            stockProductos.Add(new(7049, ECategoria.JUGUETES, "Pelota", 389, "Hairy Beast", 32));
-
-            return stockProductos;
+        public static void CargarProductos(List<Producto> stockProductos)
+        { 
+            if(stockProductos.Count == 0)
+            {
+                stockProductos.Add(new(7862, ECategoria.ALIMENTOS, "Alimento Adultos Pescado", 444.20, "Whiskas", 86, "1Kg"));
+                stockProductos.Add(new(9511, ECategoria.ALIMENTOS, "Alimento En Sobre Carne", 84.60, "Pedigree", 45, "100 Gr"));
+                stockProductos.Add(new(3628, ECategoria.LIMPIEZA, "Dentastix", 358.98, "Pedigree", 15));
+                stockProductos.Add(new(7049, ECategoria.JUGUETES, "Pelota", 389, "Hairy Beast", 32));
+            }
         }
 
         /// <summary>
